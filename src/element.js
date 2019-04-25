@@ -6,7 +6,6 @@ class Element {
         this.props = props;
         this.children = children;
     }
-
 }
 
 // 创建虚拟DOM，返回虚拟节点(object)
@@ -24,8 +23,6 @@ function render(domObj) {
         // 设置属性的方法
         setAttr(el, key, domObj.props[key]);
     }
-
-
 
     // 遍历子节点
     // 如果是虚拟DOM，就继续递归渲染
@@ -60,8 +57,6 @@ function setAttr(node, key, value) {
             break;
     }
 }
-
-
 
 // 将元素插入到页面内
 function renderDom(el, target) {
