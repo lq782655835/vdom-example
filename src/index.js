@@ -19,15 +19,23 @@ console.log(el);
 // 直接将DOM添加到页面内
 renderDom(el, document.getElementById('root'));
 
-// diff
-let virtualDom2 = createElement('ul', {class: 'list-group'}, [
-    createElement('li', {class: 'item active'}, ['七里香']),
-    createElement('li', {class: 'item'}, ['一千年以后']),
-    createElement('li', {class: 'item'}, ['需要人陪'])
-]);
-// diff一下两个不同的虚拟DOM
-let patches = diff(virtualDom, virtualDom2);
-console.log(patches);
-// 将变化打补丁，更新到el
-patch(el, patches);
+let diffInstance = () => setTimeout(() => {
+    // diff
+    let virtualDom2 = createElement('ul', {class: 'list'}, [
+        createElement('li', {class: 'item'}, [
+            createElement('a', {class: 'a-link'}, ['测试']),
+            createElement('a', {class: 'a-link'}, ['测试123']),
+        ]),
+        createElement('li', {class: 'item'}, ['林俊杰']),
+        createElement('li', {class: 'item'}, ['王力宏'])
+    ]);
+    // diff一下两个不同的虚拟DOM
+    let patches = diff(virtualDom, virtualDom2);
+    console.log(patches);
+    // 将变化打补丁，更新到el
+    patch(el, patches);
+}, 1000)
+
+true && diffInstance()
+
 

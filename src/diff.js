@@ -9,11 +9,12 @@ function diff(oldTree, newTree) {
     return patches;
 }
 
+// TOOD: 没有type: INSERT
 function walk(oldNode, newNode, index, patches) {
     // 每个元素都有一个补丁
     let current = [];
 
-    if (!newNode) { // rule1
+    if (!newNode) {
         current.push({ type: 'REMOVE', index });
     } else if (isString(oldNode) && isString(newNode)) {
         // 判断文本是否一致
