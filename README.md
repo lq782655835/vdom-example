@@ -13,6 +13,7 @@
 * dom-diff
     * diff
         * 假设不同type有不同的数据类型
+        * list key
     * patch
 
 ``` js
